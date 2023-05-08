@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+   <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+
+
+          <bean id="laptopBean"
+                class="peoksoft.Laptop"></bean>
+
+        <bean id="phoneBean"
+              class="peoksoft.Phone"></bean>
+
+
+        <bean id="tvBean"
+              class="peoksoft.Tv"></bean>
+
+
+
+
+<!-- with List setter  -->
+  <!--  <bean id="store" class="peoksoft.Store">
+        <property name="products1">
+            <list>
+                <ref bean="laptopBean"/>
+                <ref bean="phoneBean"/>
+            </list>
+        </property>
+    </bean>-->
+
+
+
+
+<!-- with setter-->
+    <bean id="storeBean"
+          class="peoksoft.Store">
+        <property name="storeName" value="${Store.storeName}"></property>
+        <property name="priceProducts" value="${Store.priceProducts}"></property>
+        <property name="products" ref="laptopBean"></property>
+    </bean>
+
+
+
+
+    <!-- with constructor-->
+
+
+<!--
+      <bean id="storeBean"
+            class="peoksoft.Store">
+          <constructor-arg ref="phoneBean"></constructor-arg>
+      </bean>
+-->
+
+
+ <!--  <bean id="store"
+         class="peoksoft.Store">
+       <constructor-arg ref="tvBean"></constructor-arg>
+
+   </bean>-->
+</beans>
+
+
+
+
+
+
+
+
+
+
